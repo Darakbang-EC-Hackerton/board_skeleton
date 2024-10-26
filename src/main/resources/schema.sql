@@ -4,5 +4,3 @@ CREATE TABLE IF NOT EXISTS article (
     content VARCHAR(255)
 );
 
-
--- comment 테이블 정의 (article_id 컬럼 추가)

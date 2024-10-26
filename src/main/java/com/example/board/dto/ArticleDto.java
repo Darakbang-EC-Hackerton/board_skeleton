@@ -1,15 +1,17 @@
-package first_project.demo.dto;
+package com.example.board.dto;
 
-import first_project.demo.entity.Article;
+import com.example.board.entity.Article;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-import java.util.Collections;
 
 //롬복을 통한 코드 리팩토링
 @AllArgsConstructor
+@NoArgsConstructor
+@Getter
 @ToString()
-public class ArticleForm {
+public class ArticleDto {
     private Long id;
     private String title;
     private String content;

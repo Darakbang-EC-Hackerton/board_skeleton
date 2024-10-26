@@ -1,4 +1,4 @@
-package first_project.demo.entity;
+package com.example.board.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -9,9 +9,9 @@ import java.util.List;
 
 
 @Entity //DB가 해당 객체를 인식가능!
+@RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
-@ToString(exclude={"comments"})
+@ToString
 @Getter
 public class Article {
     @Id //대표값을 지정! Like a 주민번호
@@ -23,21 +23,8 @@ public class Article {
     @Column
     private String content;
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.REMOVE)
-    private List<Comment> comments = new ArrayList<>();
-
-    public Article(Long id, String title, String content) {
-        this.id = id;
+    public void update(String title, String content) {
         this.title = title;
         this.content = content;
-    }
-
-    public void patch(Article article) {
-        if (article.title != null) {
-            this.title = article.title;
-        }
-        if (article.content != null) {
-            this.content = article.content;
-        }
     }
 }

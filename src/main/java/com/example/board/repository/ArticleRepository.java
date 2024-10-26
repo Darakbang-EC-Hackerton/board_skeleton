@@ -1,6 +1,6 @@
-package first_project.demo.repository;
+package com.example.board.repository;
 
-import first_project.demo.entity.Article;
+import com.example.board.entity.Article;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.ArrayList;
