@@ -3,7 +3,6 @@ package com.example.board.api;
 import com.example.board.service.ArticleService;
 import com.example.board.dto.ArticleDto;
 import com.example.board.entity.Article;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@Slf4j
 public class ArticleApiController {
     @Autowired //서비스 객체를 가져와 의존성 주입
     private ArticleService articleService;
@@ -20,13 +18,12 @@ public class ArticleApiController {
     //GET
     @GetMapping("/api/articles")
     public List<Article> index() {
-        return articleService.index();
+        return articleService.findAll();
     }
 
     @GetMapping("/api/articles/{id}")
     public Article show(@PathVariable Long id) {
-        log.info("id {}", id);
-        return articleService.show(id);
+        return articleService.findById(id);
     }
 
     //POST
@@ -59,16 +56,16 @@ public class ArticleApiController {
     }
 
     //추가 구현 사항: 제목으로 게시글 찾기
-    @GetMapping("/api/articles/{title}")
-    public ResponseEntity<Article> searchTitle(@PathVariable String title) {
+    //@GetMapping("/api/articles/{title}")
+    //public ResponseEntity<Article> searchTitle(@PathVariable String title) {
 
-    }
+    //}
 
     //추가 구현 사항: 내용으로 게시글 찾기
-    @GetMapping("/api/articles/{content}")
-    public ResponseEntity<Article> serachContent(@PathVariable String content) {
+    //@GetMapping("/api/articles/{content}")
+    //public ResponseEntity<Article> serachContent(@PathVariable String content) {
 
-    }
+    //}
 
 }
 

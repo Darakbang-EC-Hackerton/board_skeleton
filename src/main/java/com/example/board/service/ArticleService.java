@@ -9,19 +9,18 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Slf4j
 @Service //서비스 객체를 스프링부트에 생성
 public class ArticleService {
     @Autowired
     private ArticleRepository articleRepository;
 
     //리스트 형태의 Article 엔티티들을 반환해주는 메서드
-    public List<Article> index() {
+    public List<Article> findAll() {
 
     }
 
     //id값을 바탕으로 레파지토리에서 원하는 Article을 반환해주는 메서드
-    public Article show(Long id) {
+    public Article findById(Long id) {
 
     }
 
