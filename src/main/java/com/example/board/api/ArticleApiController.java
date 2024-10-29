@@ -17,55 +17,45 @@ public class ArticleApiController {
 
     //GET
     @GetMapping("/api/articles")
-    public List<Article> index() {
-        return articleService.findAll();
+    public List<Article> getAllArticles() {
+        //articleService에서 구현한 메서드를 호출하여 모든 게시글을 조회 후 반환하는 코드
+
     }
 
     @GetMapping("/api/articles/{id}")
-    public Article show(@PathVariable Long id) {
-        return articleService.findById(id);
+    public Article getArticleById(@PathVariable Long id) {
+        //articleService에서 구현한 메서드를 호출하여 게시글 단건 조회 후 반환하는 코드
+
     }
 
     //POST
     @PostMapping("/api/articles")
-    public ResponseEntity<Article> create(@RequestBody ArticleDto dto) {
-        Article created = articleService.create(dto);
-        return (created != null) ?
-                ResponseEntity.status(HttpStatus.OK).body(created):
-                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    public ResponseEntity<Article> createArticle(@RequestBody ArticleDto dto) {
+        //기본 요구 사항: articleService에 POST로 받은 dto를 전달하여 새로운 게시글을 생성하고 그 결과를 반환
     }
 
     //PATCH
     @PatchMapping("/api/articles/{id}")
-    public ResponseEntity<Article> update(@PathVariable Long id,
+    public ResponseEntity<Article> updateArticle(@PathVariable Long id,
                                           @RequestBody ArticleDto dto) {
-        Article updated = articleService.update(id, dto);
-        //이후 정확한 예외 처리
-        return (updated != null) ?
-                ResponseEntity.status(HttpStatus.OK).body(updated):
-                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        //기본 요구 사항: articleService에 PATCH로 받은 id, dto를 전달하여 수정하고 그 결과를 반환
     }
 
     //DELETE
     @DeleteMapping("/api/articles/{id}")
-    public ResponseEntity<Article> delete(@PathVariable Long id) {
-        Article deleted = articleService.delete(id);
-        return (deleted != null)?
-                ResponseEntity.status(HttpStatus.OK).body(deleted):
-                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    public ResponseEntity<Article> deleteArticleById(@PathVariable Long id) {
+        //기본 요구 사항: articleService에 DELETD로 받은 id를 전달하여 해당 게시물을 삭제하고 그 결과를 반환
     }
 
     //추가 구현 사항: 제목으로 게시글 찾기
     //@GetMapping("/api/articles/{title}")
-    //public ResponseEntity<Article> searchTitle(@PathVariable String title) {
 
-    //}
 
     //추가 구현 사항: 내용으로 게시글 찾기
     //@GetMapping("/api/articles/{content}")
-    //public ResponseEntity<Article> serachContent(@PathVariable String content) {
 
-    //}
+    // 추가 구현 사항: HTTP 응답을 참고하여 적절한 오류 메시지를 응답으로 반환
+
 
 }
 
