@@ -1,14 +1,10 @@
 package com.example.board.dto;
 
 import com.example.board.entity.Article;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 //롬복을 통한 코드 리팩토링
 
-public class ArticleDto {
+public class ArticleRequestDto {
     private Long id;
     private String title;
     private String content;
@@ -17,16 +13,14 @@ public class ArticleDto {
     }
 
     //AllArgsConstructor
-    public ArticleDto(Long id, String title, String content) {
+    public ArticleRequestDto(Long id, String title, String content) {
         this.id = id;
         this.title = title;
         this.content = content;
     }
 
-
-
     //NoArgsConstructor
-    public  ArticleDto() {
+    public ArticleRequestDto() {
     }
 
     //Getters
@@ -46,15 +40,5 @@ public class ArticleDto {
     }
     public void setContent(String content) {
         this.content = content;
-    }
-
-    //ToString
-    @Override
-    public String toString() {
-        return "ArticleDto{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                '}';
     }
 }

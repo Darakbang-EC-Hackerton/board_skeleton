@@ -1,13 +1,8 @@
 package com.example.board.service;
 
-import com.example.board.dto.ArticleDto;
-import com.example.board.entity.Article;
 import com.example.board.repository.ArticleRepository;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service //서비스 객체를 스프링부트에 생성
 public class ArticleService {
